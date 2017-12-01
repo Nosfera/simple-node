@@ -3,7 +3,7 @@
 
 // Here the x & y parameters will be available for the two functions: perimeter and area
 module.exports = (x,y,callback) =>{
-  if (x <=0 || y <=0) {
+  if (x<=0 || y <=0) {
     setTimeout(()=>
       // O pasas un error
       // The Error Object, will have attached the message that can be retrieved by the solveRectangle()
@@ -20,8 +20,9 @@ module.exports = (x,y,callback) =>{
           // this x & y values are provided by solveRectangle()
           // and now area & parameter are send as an Object so
           // instead of using "area =" this will become parameters of the funcion "rectangle.area:"
-          area: (x,y)=>(x*y),
-          perimeter: (x,y)=>(2*(x+y))
+          // Also is important to see that the paramter is defined as a "empty" () function
+          area: ()=>(x*y),
+          perimeter: ()=>(2*(x+y))
           // then in error handling if the current function callback resolves success
           // the
         }),
