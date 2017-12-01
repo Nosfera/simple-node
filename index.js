@@ -1,8 +1,4 @@
-var rect = {
-  /*Object*/
-    perimerter:(x,y)=>(2*(x+y)),
-    area:(x,y)=>(x*y),
-};
+var rect = require('./rectangle')
 
 function solveRectangle(l,b) {
   console.log("solve rect. Where l=" +l+ " and b= " +b);
