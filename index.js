@@ -1,18 +1,23 @@
 var rect = require('./rectangle')
-
 function solveRectangle(l,b) {
   console.log("solve rect. Where l=" +l+ " and b= " +b);
-  if (l<=0||b<=0) {
-    console.log("!*************************************************************************!");
-    console.log("Rec dimensions should be greater than 0. Here you have l: "+l+ " and b: "+b);
-    console.log("__________________________________________________________________________");
-  }
-  else {
-    console.log("______________________________________");
-    console.log("=== the area is= " +rect.area(l,b));
-    console.log("=== the perimerter is= " +rect.perimerter(l,b));
-    console.log("______________________________________");
-  }
+
+  // Esta funcion sera tiene un llamado a un callback con 2s de delay
+  // una vez que pasa l, b... el tercer parametro que es una funcion ()
+  // demorará xx segundos definidos en el setTimeout
+
+  rect(l,b, (err, rectangle)=>{
+    // How to handle errror
+    if(err){
+      console.log("ERROR", err.message);
+    }
+    else {
+      // No se necesita pasar parametros en rectangle.area porque ya los posee el callback en rect ()
+      console.log("The area of the rectangle of dim L=" +l + " and B= " +b + " is: " + rectangle.area());
+      console.log("The perimeter of the rectangle of dim L=" +l + " and B= " +b + " is: " + rectangle.perimeter() );
+    }
+  });
+  console.log("--------------------");
 }
 
 solveRectangle(2,4);
